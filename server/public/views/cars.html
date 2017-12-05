@@ -1,8 +1,11 @@
 <h1 ng-controller="CarController as vm">Car Page</h1>
-<div>{{vm.message}}</div>
 
 <ul>
     <li ng-repeat="car in vm.cars.list">
-        {{car.name}}
+        This {{car.year}} {{car.name}} {{car.model}}, also known as "{{car.nickname}}", is from {{car.country}}.
     </li>
 </ul>
+
+<!-- <table>
+    <thead></thead>
+</table> -->
