@@ -4,6 +4,10 @@ app.service('CarService', ['$http', function($http){
     
     self.cars = { list: [] };
 
+    self.companies = { list: [] };
+    
+    self.newCar = {}
+
     self.getCars = function(){
         $http({
             method: 'GET',
@@ -11,9 +15,20 @@ app.service('CarService', ['$http', function($http){
         }).then(function(response){
             console.log('response', response);
             self.cars.list = response.data;
-            // updates the list through the digest cycle
         })
     };
+
+    self.addNewCar = function(newCar){
+        $http({
+            method: 'POST',
+            url: '/cars',
+            data: newCar
+        }).then(function(response){
+            console.log('response', response);
+            self.newCar = {};
+            self.getCars();
+        })
+    }
 
     self.getCars();
 

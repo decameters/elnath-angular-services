@@ -1,11 +1,16 @@
 <h1 ng-controller="CarController as vm">Car Page</h1>
 
+<!-- <select ng-options="car.company_id as car.name for car in vm.cars.list track by car.id" ng-model="vm.newCar.company_id"></select> -->
+<select ng-options="car.id as car.name for car in vm.companies.list track by car.id" ng-model="vm.newCar.company_id"></select>
+
+
+<input type="text" ng-model="vm.newCar.model" placeholder="model">
+<input type="text" ng-model="vm.newCar.year" placeholder="year">
+<input type="text" ng-model="vm.newCar.nickname" placeholder="nickname">
+<button ng-click="vm.addNewCar(vm.newCar)">ADD CAR</button>
+
 <ul>
     <li ng-repeat="car in vm.cars.list">
         This {{car.year}} {{car.name}} {{car.model}}, also known as "{{car.nickname}}", is from {{car.country}}.
     </li>
 </ul>
-
-<!-- <table>
-    <thead></thead>
-</table> -->
