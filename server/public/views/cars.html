@@ -1,2 +1,8 @@
-<h1>About Page</h1>
+<h1 ng-controller="CarController as vm">Car Page</h1>
 <div>{{vm.message}}</div>
+
+<ul>
+    <li ng-repeat="car in vm.cars.list">
+        {{car.name}}
+    </li>
+</ul>
